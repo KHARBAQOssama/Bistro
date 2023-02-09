@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+*{
+	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  body{
+	background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+	background: linear-gradient(to right, #25c481, #25b7c4);
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+  }
+  section{
+	width: 100vw;
+	padding: 0 50px;
+	height:100%;
+	overflow-x: scroll;
+  }
+  section::-webkit-scrollbar {
+	display: none;
+} 
+  table{
+	width:100%;
+	table-layout: fixed;
+  }
+  .tbl-header{
+	background-color: rgba(255,255,255,0.3);
+	width: 100%;
+   }
+  .tbl-content{
+	height:450px;
+	overflow-x:auto;
+	margin-top: 0px;
+	border: 1px solid rgba(255,255,255,0.3);
+	width: 100%;
+  }
+  th,td{
+	color: #fff;
+	text-align: center;
+	width: 18% !important;
+	font-size: 12px;
+  }
+  th{
+	padding: 20px 15px;
+	font-weight: 500;
+	text-transform: uppercase;
+  }
+  .id{
+	width: 10% !important;
+  }
+  td{
+	padding: 15px;
+	vertical-align:middle;
+	font-weight: 300;
+	height: 100% !important;
+	overflow: hidden !important;
+	border-bottom: solid 1px rgba(255,255,255,0.1);
+	
+  }
+  .ellipsis{
+	text-overflow: ellipsis;
+	white-space: nowrap;
+  }
+  td img{
+	height: 50px !important;
+  }
+  tr{
+	height: 40px !important;
+  }
+  table button{
+	width: 60px;
+	padding: 0 .3em;
+	margin: .2em;
+}
+table button a{
+	text-decoration: none;
+	color: white;
+}
+
+table button:hover > a{
+	color: #25b7c4;
+}
+
+button{
+	padding: 0 .5em;
+	background-color: transparent;
+	border:1px solid white;
+	margin: 1em;
+	border-radius: 10px;
+	color: white;
+}
+button:hover{
+	background-color: white;
+	color: #25b7c4;
+	transition: all .4s ease;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	-o-transition: all .4s ease;
+}
+
+  /* for custom scrollbar for webkit browser*/
+  
+  ::-webkit-scrollbar {
+	  width: 6px;
+  } 
+  ::-webkit-scrollbar-track {
+	  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  } 
+  ::-webkit-scrollbar-thumb {
+	  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  }
+
+.recipes{
+	width: 100vw;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+.recipe{
+	margin: 1em 3em 1em 0;
+	height: 240px;
+	width: 400px;
+	display: flex;
+	position: relative;
+	border-radius: 25px;
+	box-shadow: 2px 2px 10px rgba(40, 84, 47, 0.372);
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	-ms-border-radius: 25px;
+	-o-border-radius: 25px;
+	padding: 1em;
+	background-color: white;
+}
+.recipe .info{
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
+	padding-left: 1.5em;
+	height: 100%;
+	padding-top: 1em;
+	
+}
+.recipe .img-container{
+	width: 40%;
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	background-color: #25c481;
+	box-shadow: 5px 5px 15px #03724478;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-ms-border-radius: 20px;
+	-o-border-radius: 20px;
+	position: absolute;
+	margin-left: -10%;
+	padding: 0 .2em;
+}
+.recipe .img-container img{
+	height: 95%;
+	border-radius: 20px;
+}
+
+.recipe .info .title{
+	font-weight: bold;
+	text-transform: uppercase;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	height: 40px;
+}
+.recipe .info .desc{
+	font-weight: lighter;
+	text-align: justify;
+	font-size: 14px;
+	height: 140px;
+}
+.recipe .info .footer{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	height: 60px;
+}
+.recipe .info .footer .price{
+	font-weight: bold;
+}
+.recipe .info .footer .price::after{
+	content: 'MAD';
+	font-weight: bold;
+	margin-left: .3em;
+}
+.recipe .info .footer .buy{
+	background: linear-gradient(to right, #25c481, #25b7c4) !important;
+	border: 1px solid #25b7c4;
+	font-weight: bold;
+	padding: .4em 1em;
+	margin: 0 1em;
+}
+.recipe .info .footer .buy:hover{
+	background: linear-gradient(to right, #ffffff, #ffffff) !important;
+	border: 1px solid #25b7c4;
+	color: #25b7c4;
+}
+
+#add-recipe{
+	border: 2px solid white;
+	width:100%;
+	padding: 1em 2em;
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	border-radius: 5px;
+	background: linear-gradient(to right, #00814b, #00b9ca);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+
+button a{
+	color: white;
+	text-decoration: none;
+}
+button:hover > a{
+	color: #25c481;
+}
+
+#add-recipe input,#add-recipe textarea,#add-recipe .error,#add-recipe h4{
+	margin: .4em 0;
+	padding: .2em 1em;
+}
+#add-recipe h4{
+	text-align: center;
+	font-weight: bold;
+	color: white;
+}
+
+
+nav{
+	width: 100vw;
+	height: 80px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+nav > img{
+	margin: 0 2em;
+}
+.dropdown{
+	height: 0%;
+	border:2px solid rgb(252, 200, 67);
+	padding: 0 1em;
+	width: 200px;
+	height: 40px;
+	margin: 0 2em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-ms-border-radius: 20px;
+	-o-border-radius: 20px;
+	position: relative;
+}
+.dropdown h6{
+	font-weight: bold;
+	margin-left: 1em;
+	margin-right: auto;
+	margin-top: .3em;
+}
+.dropdown button{
+	border: none;
+	margin: 0;
+}
+
+.list{
+	background-color: #fff;
+	width: 87%;
+	position: absolute;
+	top: 93%;
+	border-radius: 5px;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.21);
+}
+.list ul{
+	height: 100%;
+	margin-left: -1em;
+	width: 100%;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+.list ul li{
+	width: 100%;
+	text-align: center;
+	margin: .1em 0;
+	padding: .1em 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.372);
+}
+.list ul li:hover{
+	background-color: #00b9ca5b;
+	color: #00814b;
+}
+.list ul li:hover > a{
+	color: #00814b;
+}
+.list ul li a{
+	text-decoration: none;
+	color: black;
+}
+
+.editing{
+	display: flex;
+	flex-direction: column;
+	padding: 2em 1em;
+	width: 400px;
+	margin: auto;
+
+}
+.editing input{
+	margin: .7em 0;
+}
+.editing h4{
+	text-align: center;
+	color: white;
+}
+.editing input,.editing textarea{
+	padding: .5em;
+}
+.editing .image{
+	width: 95%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+}
+.editing .error{
+	color: #ff5151;
+}
+.editing .image img{
+	width: 95%;
+	margin: auto;
+}
