@@ -22,7 +22,7 @@ Route::get('/', function () { return view('auth.signin'); })->name('auth');
 
 
 
-Route::get('/edit-profile', function () {return view('update-profile',['user' => Illuminate\Support\Facades\Auth::user() ]); })->name('edit.profile');
+Route::get('/edit-profile', function () {return view('edit-profile',['user' => Illuminate\Support\Facades\Auth::user() ]); })->name('edit-profile');
 
 
 
@@ -32,16 +32,12 @@ Route::get('/change-password', function () {
 
 
 
-Route::post('/add-recipe', [RecipeController::class,'create'])->name('add.recipe');
+
 
 
 Route::get('/logout', [UserController::class,'logout'])->name('logout');
 
-
-
-Route::post('/edit-profile', function () {
-    return view('update-profile',['user' => Illuminate\Support\Facades\Auth::user() ]);
-})->name('update.profile');
+Route::post('/update-profile', [UserController::class,'update'])->name('update.profile');
 
 
 Route::get('/signup', function () {return view('auth.signup');})->name('register');
@@ -66,20 +62,15 @@ Route::post('/sign-in',[authController::class,'signIn'])->name('login');
 
 Route::get('dashboard', function () {
     return view('dashboard', [  'user' => Illuminate\Support\Facades\Auth::user(),
-                                'recipes' =>  App\Models\Recipe::all(),]);
-})->name('dashboard');
+                                'recipes' =>  App\Models\Recipe::all(),]);})->name('dashboard');
 
+Route::post('/add-recipe', [RecipeController::class,'create'])->name('add.recipe');
 
-
-
-
-Route::group(['middleware'=>'guest'],function(){
-
-    Route::get('/forgot-password', function () { return view('auth.forgot-password'); })->name('password.request');
+Route::get('/forgot-password', function () { return view('auth.forgot-password'); })->name('password.request');
     
+Route::post('/forgot-password', [authController::class,'resetPassword'])->name('password.email'); 
 
-    Route::post('/forgot-password', [authController::class,'resetPassword'])->name('password.email');
-    
+Route::get('/reset-password/{token}', function ($token) { return view('auth.reset-password', ['token' => $token]); })->name('password.reset');
 
-    Route::get('/reset-password/{token}', function ($token) { return view('auth.reset-password', ['token' => $token]); })->name('password.reset');
-});
+
+Route::patch('/update-password', [UserController::class,'updatePassword'])->name('update.password');

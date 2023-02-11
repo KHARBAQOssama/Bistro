@@ -39,24 +39,42 @@ class UserController extends Controller
     public function update(Request $request){
         $validatedData = $request->validate([
             'username' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed',
-            'password_confirmation' => 'required|same:password',
+            'email' => 'required|email',
         ]);
     
         $user = new User;
         $user->username = $request->input('username');
         $user->email = $request->input('email');
         $user->id = $request->input('id');
-        $user->password = Hash::make($request->input('password'));
 
         $update = User::where('id', $user->id)->update([
             'username'=>$user->username,
             'email'=>$user->email,
-            'password'=>$user->password,
             ]);
+            if($update){
+                return redirect('dashboard');
+            }
     }
 
+    public function updatePassword(Request $request){
+        $validatedData = $request->validate([
+            'old_password' => ['required', 'min:6'],
+            'password' => ['required', 'min:6', 'confirmed'],
+        ]);
+    
+        $user = Auth::user();
+    
+        if (!Hash::check($request->old_password, $user->password)) {
+            return redirect()->back()->withErrors(['old_password' => 'The current password is incorrect.']);
+        }
+    
+        $user->password = Hash::make($request->password);
+        $update = User::where('id', $user->id)->update([
+            'password'=>$user->password,
+            ]);
+    
+        return redirect()->back()->with(['status' => 'Password updated successfully.']);
+    }
 
     public function logout(Request $request)
     {   

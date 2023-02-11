@@ -184,3 +184,63 @@ input {
 .black-link:hover{
 	color: black;
 }
+
+.passChange {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.subDiv {
+	width: 350px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	justify-content: center;
+	margin: auto;
+}
+.passChange form{
+	width: 100%;
+	background: -webkit-linear-gradient(to right, #25c481, #25b7c4);
+	background: linear-gradient(to right, #25c481, #25b7c4);
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2em .3em;
+	border: 2px solid white;
+}
+.passChange > h4{
+	margin: auto;
+	text-align: center;
+	color: #25c481;
+	font-weight: bold;
+	margin-bottom: 1em;
+
+}
+.passChange form input{
+	width: 90%;
+	margin: .4em auto;
+	padding: .2em .4em;
+	
+}
+.passChange form button{
+	padding: .3em 2em;
+	margin: 1em auto;
+	background-color: transparent;
+	border: 2px solid white;
+	transition: all .4s ease;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	-o-transition: all .4s ease;
+}
+.passChange form button:hover{
+	color: #25c481;
+	background-color: white;
+}
+
+
+::-webkit-scrollbar {
+	width: 0px;
+} 

@@ -13,7 +13,18 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    
+    <nav>
+        <a href="/dashboard"><img src="{{URL::asset('image/logo.png')}}" height="40" alt=""></a>
+        <div class="nav">
+          <img src="{{URL::asset('image/profile.png')}}" height="25" alt="">
+          <div class="navinfo">
+            <h6 title="{{$user->username}}">{{$user->username}}</h6>
+            <p title="{{$user->email}}">{{$user->email}}</p>
+          </div>
+          <button><a href="{{route('edit-profile')}}"><i class="bi bi-pen"></a></i></button>
+          <button><a href="{{route('logout')}}"><i class="bi bi-box-arrow-right"></i></a></button>
+        </div>
+      </nav>
     @yield('content')
     @yield('sidebar')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

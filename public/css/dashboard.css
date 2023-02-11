@@ -31,7 +31,7 @@
 	width: 100%;
    }
   .tbl-content{
-	height:450px;
+	height:400px;
 	overflow-x:auto;
 	margin-top: 0px;
 	border: 1px solid rgba(255,255,255,0.3);
@@ -252,16 +252,16 @@ nav{
 	justify-content: space-between;
 	align-items: center;
 }
-nav > img{
+nav a img{
 	margin: 0 2em;
 }
-.dropdown{
-	height: 0%;
-	border:2px solid rgb(252, 200, 67);
-	padding: 0 1em;
-	width: 200px;
-	height: 40px;
-	margin: 0 2em;
+.nav{
+	border:1px solid rgb(252, 200, 67);
+	padding: 0 .2em;
+	width: 280px;
+	height: 60px;
+	margin-left: auto;
+	margin-right: 1em;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -270,59 +270,26 @@ nav > img{
 	-moz-border-radius: 20px;
 	-ms-border-radius: 20px;
 	-o-border-radius: 20px;
-	position: relative;
-}
-.dropdown h6{
-	font-weight: bold;
-	margin-left: 1em;
-	margin-right: auto;
-	margin-top: .3em;
-}
-.dropdown button{
-	border: none;
-	margin: 0;
+
+
 }
 
-.list{
-	background-color: #fff;
-	width: 87%;
-	position: absolute;
-	top: 93%;
-	border-radius: 5px;
-	
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-ms-border-radius: 5px;
-	-o-border-radius: 5px;
-	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.21);
+.nav img{
+	height: 40px;
 }
-.list ul{
-	height: 100%;
-	margin-left: -1em;
-	width: 100%;
-	list-style: none;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	
+
+.nav .navinfo{
+	width: 120px;
+	overflow: hidden;
 }
-.list ul li{
-	width: 100%;
-	text-align: center;
-	margin: .1em 0;
-	padding: .1em 0;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.372);
+.nav button{
+	margin: .1em !important;
+
 }
-.list ul li:hover{
-	background-color: #00b9ca5b;
-	color: #00814b;
-}
-.list ul li:hover > a{
-	color: #00814b;
-}
-.list ul li a{
-	text-decoration: none;
-	color: black;
+.nav .navinfo h6{
+	font-weight: bold;
+	margin-bottom: -.3em;
+	margin-top: .6em;
 }
 
 .editing{
@@ -355,4 +322,53 @@ nav > img{
 .editing .image img{
 	width: 95%;
 	margin: auto;
+}
+
+.passChange {
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.subDiv {
+	width: 350px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	justify-content: center;
+	margin: auto;
+}
+.passChange form{
+	width: 100%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 1em .3em;
+	border: 2px solid white;
+}
+.passChange > h4{
+	margin: auto;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	margin-bottom: 1em;
+
+}
+.passChange form input{
+	width: 90%;
+	margin: .4em auto;
+	padding: .2em .4em;
+}
+.subDiv > button{
+	width: 140px;
+	position: absolute;
+	top: 60%;
+	left: 3%;
+}
+.subDiv > form >div{
+	width: 100%;
+	display: flex;
+	justify-content: end;
 }
