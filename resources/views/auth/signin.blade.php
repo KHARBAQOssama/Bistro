@@ -14,7 +14,7 @@
 			@error('password')
 				<div class="error">{{ $message }}</div>
 			@enderror
-			<a href="{{ route('password.request') }}" class="black-link">Forgot your password?</a>
+			<a href="{{ route('forget.password.get') }}" class="black-link">Forgot your password?</a>
 			<button>Sign In</button>
 		</form>
 	</div>
@@ -22,7 +22,7 @@
 		<div class="overlay">
 			<div class="overlay-panel overlay-right">
 				<h1 class="mb-3">Hello, Friend!</h1>
-				<button class="ghost" id="signUp"><a href="{{ route('register') }}">Sign Up</a> </button>
+				<button class="ghost" id="signUp"><a href="{{ route('registerPage') }}">Sign Up</a> </button>
 			</div>
 		</div>
 	</div>

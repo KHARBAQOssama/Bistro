@@ -33,7 +33,7 @@ class UserController extends Controller
         } catch (ValidationException $e) {
             return redirect()->back()->withInput($request->input())->withErrors($validatedData);
         }
-        return redirect('dashboard');;
+        return redirect('home');;
     }
 
     public function update(Request $request){
@@ -52,7 +52,7 @@ class UserController extends Controller
             'email'=>$user->email,
             ]);
             if($update){
-                return redirect('dashboard');
+                return redirect('home');
             }
     }
 
@@ -84,6 +84,6 @@ class UserController extends Controller
     
         $request->session()->regenerateToken();
     
-        return redirect('/');
+        return redirect('/home');
     }
 }

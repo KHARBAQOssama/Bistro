@@ -11,6 +11,7 @@
 				<div class="error">{{ $message }}</div>
 		    @enderror
             <input type="hidden" name="id" value="{{$recipe->id}}">
+            <input type="hidden" name="oldImage" value="{{$recipe->image}}">
             @error('description')
             <div class="error">{{ $message }}</div>
             @enderror

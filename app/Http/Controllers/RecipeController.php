@@ -36,7 +36,7 @@ class RecipeController extends Controller
         $recipe->publisher = $data['publisher'];
         $recipe->save();
         if($recipe->save()){
-            return redirect('dashboard');
+            return redirect('home');
         }else{
             return redirect()->back();
         }
@@ -48,37 +48,35 @@ class RecipeController extends Controller
             'name' => 'required',
             'price' => 'required',
             'description' => 'required|min:30',
-            'image' => 'required',
         ]);
+        
 
         $data = [
             'name' => $request->input('name'),
             'price' => $request->input('price'),
             'description' => $request->input('description'),
-            'id' => $request->input('id'),
             'image' => '',
         ];
         
-        $file = $request->file('image');
-        $filename= date('YmdHi').$file->getClientOriginalName();
-        $file->move(public_path('Image'), $filename);
-        $data['image']= $filename;
-
-        $update = Recipe::where('id', $data['id'])->update([
-                                                'name' => $data['name'], 
-                                                'image' => $data['image'], 
-                                                'description' => $data['description'], 
-                                                'price' => $data['price'], 
-                                                ]);
+        if($request->file('image')){
+            $file = $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('Image'), $filename);
+            $data['image']= $filename;
+        }else{
+            $data['image']= $request->input('oldImage');
+        }
+        
+        $update = Recipe::where('id', $request->input('id'))->update($data);
         if($update){
-            return redirect('dashboard');
+            return redirect('home');
         }
     }
 
     public function delete($id){
         $delete = Recipe::where('id',$id)->delete();
         if($delete){
-            return redirect('dashboard');
+            return redirect('home');
         }
     }
 

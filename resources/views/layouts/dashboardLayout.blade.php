@@ -14,15 +14,18 @@
 </head>
 <body>
     <nav>
-        <a href="/dashboard"><img src="{{URL::asset('image/logo.png')}}" height="40" alt=""></a>
+        <a href="/home"><img src="{{URL::asset('image/logo.png')}}" height="40" alt=""></a>
         <div class="nav">
           <img src="{{URL::asset('image/profile.png')}}" height="25" alt="">
           <div class="navinfo">
             <h6 title="{{$user->username}}">{{$user->username}}</h6>
             <p title="{{$user->email}}">{{$user->email}}</p>
           </div>
-          <button><a href="{{route('edit-profile')}}"><i class="bi bi-pen"></a></i></button>
-          <button><a href="{{route('logout')}}"><i class="bi bi-box-arrow-right"></i></a></button>
+          <div>
+              <button><a href="{{route('edit-profile')}}"><i class="bi bi-pen"></a></i></button>
+              <button><a href="{{route('logout')}}"><i class="bi bi-box-arrow-right"></i></a></button>
+          </div>
+          
         </div>
       </nav>
     @yield('content')

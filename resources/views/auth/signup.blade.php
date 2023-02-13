@@ -26,7 +26,7 @@
 		<div class="overlay">
 			<div class="overlay-panel overlay-right">
 				<h1 class="mb-3">Welcome Back!</h1>
-				<button class="ghost" id="signIn"><a href="{{ route('auth') }}">Sign In</a></button>
+				<button class="ghost" id="signIn"><a href="{{ route('signInPage') }}">Sign In</a></button>
 			</div>
 		</div>
 	</div>
