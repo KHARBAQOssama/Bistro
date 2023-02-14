@@ -10,10 +10,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="{{URL::asset('css/sign.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/alertStyle.css')}}">
+
     
+
     <title>@yield('title')</title>
 </head>
 <body>
-    @yield('content')
+    <div id="alert" class="alert hide">
+        <span class="fas fa-exclamation-circle"></span>
+        <span id="msg" class="msg"></span>
+        <div id="close-btn" class="close-btn">
+           <span class="fas fa-times"></span>
+        </div>
+    </div>
+    
+<script src="{{URL::asset('js/alert.js')}}"></script>
+@yield('content') 
+
+@if (session('message'))
+            <script>
+                showAlert("{{ session('message') }}");
+            </script>
+@endif
+@if (session('error'))
+            <script>
+                showAlert("{{ session('error') }}");
+            </script>
+@endif
 </body>
 </html>

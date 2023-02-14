@@ -36,7 +36,7 @@ class RecipeController extends Controller
         $recipe->publisher = $data['publisher'];
         $recipe->save();
         if($recipe->save()){
-            return redirect('home');
+            return redirect('home')->with('message','Your Recipe Has Been Added Successfully');
         }else{
             return redirect()->back();
         }
@@ -69,14 +69,14 @@ class RecipeController extends Controller
         
         $update = Recipe::where('id', $request->input('id'))->update($data);
         if($update){
-            return redirect('home');
+            return redirect('home')->with('message','Your Recipe Has Been Updated Successfully');
         }
     }
 
     public function delete($id){
         $delete = Recipe::where('id',$id)->delete();
         if($delete){
-            return redirect('home');
+            return redirect('home')->with('message','Your Recipe Has Been Deleted Successfully');
         }
     }
 

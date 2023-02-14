@@ -33,7 +33,7 @@ class UserController extends Controller
         } catch (ValidationException $e) {
             return redirect()->back()->withInput($request->input())->withErrors($validatedData);
         }
-        return redirect('home');;
+        return redirect('home')->with('message','Welcome To Our Web Site');
     }
 
     public function update(Request $request){
@@ -52,7 +52,7 @@ class UserController extends Controller
             'email'=>$user->email,
             ]);
             if($update){
-                return redirect('home');
+                return redirect('home')->with('message','Your Profile Has Been Updated Successfully');
             }
     }
 
@@ -65,7 +65,7 @@ class UserController extends Controller
         $user = Auth::user();
     
         if (!Hash::check($request->old_password, $user->password)) {
-            return redirect()->back()->withErrors(['old_password' => 'The current password is incorrect.']);
+            return redirect()->back()->with(['error' => 'The current password is incorrect.']);
         }
     
         $user->password = Hash::make($request->password);
@@ -73,7 +73,7 @@ class UserController extends Controller
             'password'=>$user->password,
             ]);
     
-        return redirect()->back()->with(['status' => 'Password updated successfully.']);
+        return redirect()->back()->with('message','Your Password Has Been Updated Successfully');
     }
 
     public function logout(Request $request)

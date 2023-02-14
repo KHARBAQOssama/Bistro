@@ -4,6 +4,7 @@
 <div class="passChange">
     <h4>Forgot Password</h4>
     <div class="subDiv">
+        
         <form action="{{ route('forget.password.post') }}" method="post">
             @csrf
             <input name="email"  type="email" placeholder="Please Enter Your Email">
